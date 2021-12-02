@@ -1,7 +1,6 @@
 FROM maven:3.5-jdk-8-alpine AS build 
 WORKDIR /usr/app
 COPY src /usr/app/src
-COPY manifest.yml /usr/app/
 COPY pom.xml /usr/app/
 RUN mvn install
 
