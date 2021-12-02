@@ -6,6 +6,7 @@ RUN mvn install
 
 FROM java:8-jdk-alpine
 WORKDIR /usr/app
-COPY --from=build /usr/app/target/petclinic.war /usr/app/
-EXPOSE 9104
-ENTRYPOINT ["java", "-jar", "petclinic.war"]
+COPY --from=build /usr/app/target/*.jar /usr/app/app.jar
+RUN ls
+EXPOSE 8080
+ENTRYPOINT ["java", "-jar", "app.jar"]
